@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ftrTakipModelStoreContainer" CdmEntityContainer="ftrTakipEntities">
+    <EntitySetMapping Name="Abone">
+      <EntityTypeMapping TypeName="ftrTakipModel.Abone">
+        <MappingFragment StoreEntitySet="Abone">
+          <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+          <ScalarProperty Name="AboneNo" ColumnName="AboneNo" />
+          <ScalarProperty Name="HizmetNo" ColumnName="HizmetNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DGaz">
+      <EntityTypeMapping TypeName="ftrTakipModel.DGaz">
+        <MappingFragment StoreEntitySet="DGaz">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dagitimfirmasi" ColumnName="dagitimfirmasi" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="sontarih" ColumnName="sontarih" />
+          <ScalarProperty Name="tutar" ColumnName="tutar" />
+          <ScalarProperty Name="odendi" ColumnName="odendi" />
+          <ScalarProperty Name="HizmetMiktari" ColumnName="HizmetMiktari" />
+          <ScalarProperty Name="DGazId" ColumnName="DGazId" />
+          <ScalarProperty Name="HizmetType" ColumnName="HizmetType" />
+          <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elektrik">
+      <EntityTypeMapping TypeName="ftrTakipModel.Elektrik">
+        <MappingFragment StoreEntitySet="Elektrik">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dagitimfirması" ColumnName="dagitimfirması" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="sontarih" ColumnName="sontarih" />
+          <ScalarProperty Name="tutar" ColumnName="tutar" />
+          <ScalarProperty Name="odendi" ColumnName="odendi" />
+          <ScalarProperty Name="HizmetMiktari" ColumnName="HizmetMiktari" />
+          <ScalarProperty Name="ElektrikId" ColumnName="ElektrikId" />
+          <ScalarProperty Name="HizmetType" ColumnName="HizmetType" />
+          <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hizmet">
+      <EntityTypeMapping TypeName="ftrTakipModel.Hizmet">
+        <MappingFragment StoreEntitySet="Hizmet">
+          <ScalarProperty Name="HizmetID" ColumnName="HizmetID" />
+          <ScalarProperty Name="HizmetType" ColumnName="HizmetType" />
+          <ScalarProperty Name="SabitFatura" ColumnName="SabitFatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Internet">
+      <EntityTypeMapping TypeName="ftrTakipModel.Internet">
+        <MappingFragment StoreEntitySet="Internet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="sontarih" ColumnName="sontarih" />
+          <ScalarProperty Name="tutar" ColumnName="tutar" />
+          <ScalarProperty Name="odendi" ColumnName="odendi" />
+          <ScalarProperty Name="HizmetMiktari" ColumnName="HizmetMiktari" />
+          <ScalarProperty Name="InternetId" ColumnName="InternetId" />
+          <ScalarProperty Name="HizmetType" ColumnName="HizmetType" />
+          <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kullanici">
+      <EntityTypeMapping TypeName="ftrTakipModel.kullanici">
+        <MappingFragment StoreEntitySet="kullanici">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TelefonNo" ColumnName="TelefonNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Su">
+      <EntityTypeMapping TypeName="ftrTakipModel.Su">
+        <MappingFragment StoreEntitySet="Su">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DagitimFirmasi" ColumnName="DagitimFirmasi" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="sontarih" ColumnName="sontarih" />
+          <ScalarProperty Name="tutar" ColumnName="tutar" />
+          <ScalarProperty Name="odendi" ColumnName="odendi" />
+          <ScalarProperty Name="HizmetMiktarı" ColumnName="HizmetMiktarı" />
+          <ScalarProperty Name="SuId" ColumnName="SuId" />
+          <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+          <ScalarProperty Name="HizmetType" ColumnName="HizmetType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ftrTakipModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefon">
+      <EntityTypeMapping TypeName="ftrTakipModel.Telefon">
+        <MappingFragment StoreEntitySet="Telefon">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GSMType" ColumnName="GSMType" />
+          <ScalarProperty Name="DataMB" ColumnName="DataMB" />
+          <ScalarProperty Name="Sms" ColumnName="Sms" />
+          <ScalarProperty Name="InternetGB" ColumnName="InternetGB" />
+          <ScalarProperty Name="SesDK" ColumnName="SesDK" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="sontarih" ColumnName="sontarih" />
+          <ScalarProperty Name="tutar" ColumnName="tutar" />
+          <ScalarProperty Name="odendi" ColumnName="odendi" />
+          <ScalarProperty Name="Sabit" ColumnName="Sabit" />
+          <ScalarProperty Name="HizmetMiktarı" ColumnName="HizmetMiktarı" />
+          <ScalarProperty Name="HizmetType" ColumnName="HizmetType" />
+          <ScalarProperty Name="TelefonId" ColumnName="TelefonId" />
+          <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

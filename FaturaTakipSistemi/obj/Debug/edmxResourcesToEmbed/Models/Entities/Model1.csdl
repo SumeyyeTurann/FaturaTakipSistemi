@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ftrTakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Abone">
+    <Key>
+      <PropertyRef Name="AboneID" />
+    </Key>
+    <Property Name="AboneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AboneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HizmetNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DGaz" Relationship="Self.FK_DGaz_Abone" FromRole="Abone" ToRole="DGaz" />
+    <NavigationProperty Name="Elektrik" Relationship="Self.FK_Elektrik_Abone" FromRole="Abone" ToRole="Elektrik" />
+    <NavigationProperty Name="Internet" Relationship="Self.FK_Internet_Abone" FromRole="Abone" ToRole="Internet" />
+    <NavigationProperty Name="Su" Relationship="Self.FK_Su_Abone" FromRole="Abone" ToRole="Su" />
+    <NavigationProperty Name="Telefon" Relationship="Self.FK_Telefon_Abone" FromRole="Abone" ToRole="Telefon" />
+  </EntityType>
+  <EntityType Name="DGaz">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dagitimfirmasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sontarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="odendi" Type="Boolean" Nullable="false" />
+    <Property Name="HizmetMiktari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DGazId" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AboneID" Type="Int32" />
+    <NavigationProperty Name="Abone" Relationship="Self.FK_DGaz_Abone" FromRole="DGaz" ToRole="Abone" />
+    <NavigationProperty Name="Hizmet" Relationship="Self.FK_DGaz_Hizmet" FromRole="DGaz" ToRole="Hizmet" />
+    <NavigationProperty Name="kullanici" Relationship="Self.FK_DGaz_kullanici" FromRole="DGaz" ToRole="kullanici" />
+  </EntityType>
+  <EntityType Name="Elektrik">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dagitimfirması" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sontarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="odendi" Type="Boolean" Nullable="false" />
+    <Property Name="HizmetMiktari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ElektrikId" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AboneID" Type="Int32" />
+    <NavigationProperty Name="Abone" Relationship="Self.FK_Elektrik_Abone" FromRole="Elektrik" ToRole="Abone" />
+    <NavigationProperty Name="Hizmet" Relationship="Self.FK_Elektrik_Hizmet" FromRole="Elektrik" ToRole="Hizmet" />
+    <NavigationProperty Name="kullanici" Relationship="Self.FK_Elektrik_kullanici1" FromRole="Elektrik" ToRole="kullanici" />
+  </EntityType>
+  <EntityType Name="Hizmet">
+    <Key>
+      <PropertyRef Name="HizmetID" />
+    </Key>
+    <Property Name="HizmetID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HizmetType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SabitFatura" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DGaz" Relationship="Self.FK_DGaz_Hizmet" FromRole="Hizmet" ToRole="DGaz" />
+    <NavigationProperty Name="Elektrik" Relationship="Self.FK_Elektrik_Hizmet" FromRole="Hizmet" ToRole="Elektrik" />
+    <NavigationProperty Name="Internet" Relationship="Self.FK_Internet_Hizmet" FromRole="Hizmet" ToRole="Internet" />
+    <NavigationProperty Name="Su" Relationship="Self.FK_Su_Hizmet" FromRole="Hizmet" ToRole="Su" />
+    <NavigationProperty Name="Telefon" Relationship="Self.FK_Telefon_Hizmet" FromRole="Hizmet" ToRole="Telefon" />
+  </EntityType>
+  <EntityType Name="Internet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sontarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="odendi" Type="Boolean" Nullable="false" />
+    <Property Name="HizmetMiktari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InternetId" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HizmetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AboneID" Type="Int32" />
+    <NavigationProperty Name="Abone" Relationship="Self.FK_Internet_Abone" FromRole="Internet" ToRole="Abone" />
+    <NavigationProperty Name="Hizmet" Relationship="Self.FK_Internet_Hizmet" FromRole="Internet" ToRole="Hizmet" />
+    <NavigationProperty Name="kullanici" Relationship="Self.FK_Internet_kullanici" FromRole="Internet" ToRole="kullanici" />
+  </EntityType>
+  <EntityType Name="kullanici">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonNo" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="DGaz" Relationship="Self.FK_DGaz_kullanici" FromRole="kullanici" ToRole="DGaz" />
+    <NavigationProperty Name="Elektrik" Relationship="Self.FK_Elektrik_kullanici1" FromRole="kullanici" ToRole="Elektrik" />
+    <NavigationProperty Name="Internet" Relationship="Self.FK_Internet_kullanici" FromRole="kullanici" ToRole="Internet" />
+    <NavigationProperty Name="Su" Relationship="Self.FK_Su_kullanici" FromRole="kullanici" ToRole="Su" />
+    <NavigationProperty Name="Telefon" Relationship="Self.FK_Telefon_kullanici" FromRole="kullanici" ToRole="Telefon" />
+  </EntityType>
+  <EntityType Name="Su">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DagitimFirmasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sontarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="odendi" Type="Boolean" Nullable="false" />
+    <Property Name="HizmetMiktarı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SuId" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AboneID" Type="Int32" />
+    <Property Name="HizmetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Abone" Relationship="Self.FK_Su_Abone" FromRole="Su" ToRole="Abone" />
+    <NavigationProperty Name="Hizmet" Relationship="Self.FK_Su_Hizmet" FromRole="Su" ToRole="Hizmet" />
+    <NavigationProperty Name="kullanici" Relationship="Self.FK_Su_kullanici" FromRole="Su" ToRole="kullanici" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Telefon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GSMType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataMB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sms" Type="Int32" Nullable="false" />
+    <Property Name="InternetGB" Type="Int32" Nullable="false" />
+    <Property Name="SesDK" Type="Int32" Nullable="false" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sontarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="odendi" Type="Boolean" Nullable="false" />
+    <Property Name="Sabit" Type="Boolean" Nullable="false" />
+    <Property Name="HizmetMiktarı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonId" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AboneID" Type="Int32" />
+    <NavigationProperty Name="Abone" Relationship="Self.FK_Telefon_Abone" FromRole="Telefon" ToRole="Abone" />
+    <NavigationProperty Name="Hizmet" Relationship="Self.FK_Telefon_Hizmet" FromRole="Telefon" ToRole="Hizmet" />
+    <NavigationProperty Name="kullanici" Relationship="Self.FK_Telefon_kullanici" FromRole="Telefon" ToRole="kullanici" />
+  </EntityType>
+  <Association Name="FK_DGaz_Abone">
+    <End Role="Abone" Type="Self.Abone" Multiplicity="0..1" />
+    <End Role="DGaz" Type="Self.DGaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abone">
+        <PropertyRef Name="AboneID" />
+      </Principal>
+      <Dependent Role="DGaz">
+        <PropertyRef Name="AboneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Elektrik_Abone">
+    <End Role="Abone" Type="Self.Abone" Multiplicity="0..1" />
+    <End Role="Elektrik" Type="Self.Elektrik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abone">
+        <PropertyRef Name="AboneID" />
+      </Principal>
+      <Dependent Role="Elektrik">
+        <PropertyRef Name="AboneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internet_Abone">
+    <End Role="Abone" Type="Self.Abone" Multiplicity="0..1" />
+    <End Role="Internet" Type="Self.Internet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abone">
+        <PropertyRef Name="AboneID" />
+      </Principal>
+      <Dependent Role="Internet">
+        <PropertyRef Name="AboneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Su_Abone">
+    <End Role="Abone" Type="Self.Abone" Multiplicity="0..1" />
+    <End Role="Su" Type="Self.Su" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abone">
+        <PropertyRef Name="AboneID" />
+      </Principal>
+      <Dependent Role="Su">
+        <PropertyRef Name="AboneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefon_Abone">
+    <End Role="Abone" Type="Self.Abone" Multiplicity="0..1" />
+    <End Role="Telefon" Type="Self.Telefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abone">
+        <PropertyRef Name="AboneID" />
+      </Principal>
+      <Dependent Role="Telefon">
+        <PropertyRef Name="AboneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DGaz_Hizmet">
+    <End Role="Hizmet" Type="Self.Hizmet" Multiplicity="0..1" />
+    <End Role="DGaz" Type="Self.DGaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hizmet">
+        <PropertyRef Name="HizmetID" />
+      </Principal>
+      <Dependent Role="DGaz">
+        <PropertyRef Name="HizmetType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DGaz_kullanici">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="0..1" />
+    <End Role="DGaz" Type="Self.DGaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DGaz">
+        <PropertyRef Name="DGazId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Elektrik_Hizmet">
+    <End Role="Hizmet" Type="Self.Hizmet" Multiplicity="0..1" />
+    <End Role="Elektrik" Type="Self.Elektrik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hizmet">
+        <PropertyRef Name="HizmetID" />
+      </Principal>
+      <Dependent Role="Elektrik">
+        <PropertyRef Name="HizmetType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Elektrik_kullanici1">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="0..1" />
+    <End Role="Elektrik" Type="Self.Elektrik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Elektrik">
+        <PropertyRef Name="ElektrikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internet_Hizmet">
+    <End Role="Hizmet" Type="Self.Hizmet" Multiplicity="0..1" />
+    <End Role="Internet" Type="Self.Internet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hizmet">
+        <PropertyRef Name="HizmetID" />
+      </Principal>
+      <Dependent Role="Internet">
+        <PropertyRef Name="HizmetType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Su_Hizmet">
+    <End Role="Hizmet" Type="Self.Hizmet" Multiplicity="0..1" />
+    <End Role="Su" Type="Self.Su" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hizmet">
+        <PropertyRef Name="HizmetID" />
+      </Principal>
+      <Dependent Role="Su">
+        <PropertyRef Name="HizmetType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefon_Hizmet">
+    <End Role="Hizmet" Type="Self.Hizmet" Multiplicity="0..1" />
+    <End Role="Telefon" Type="Self.Telefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hizmet">
+        <PropertyRef Name="HizmetID" />
+      </Principal>
+      <Dependent Role="Telefon">
+        <PropertyRef Name="HizmetType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Internet_kullanici">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="1" />
+    <End Role="Internet" Type="Self.Internet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Internet">
+        <PropertyRef Name="InternetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Su_kullanici">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="1" />
+    <End Role="Su" Type="Self.Su" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Su">
+        <PropertyRef Name="SuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefon_kullanici">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="1" />
+    <End Role="Telefon" Type="Self.Telefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Telefon">
+        <PropertyRef Name="TelefonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ftrTakipEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abone" EntityType="Self.Abone" />
+    <EntitySet Name="DGaz" EntityType="Self.DGaz" />
+    <EntitySet Name="Elektrik" EntityType="Self.Elektrik" />
+    <EntitySet Name="Hizmet" EntityType="Self.Hizmet" />
+    <EntitySet Name="Internet" EntityType="Self.Internet" />
+    <EntitySet Name="kullanici" EntityType="Self.kullanici" />
+    <EntitySet Name="Su" EntityType="Self.Su" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Telefon" EntityType="Self.Telefon" />
+    <AssociationSet Name="FK_DGaz_Abone" Association="Self.FK_DGaz_Abone">
+      <End Role="Abone" EntitySet="Abone" />
+      <End Role="DGaz" EntitySet="DGaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Elektrik_Abone" Association="Self.FK_Elektrik_Abone">
+      <End Role="Abone" EntitySet="Abone" />
+      <End Role="Elektrik" EntitySet="Elektrik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internet_Abone" Association="Self.FK_Internet_Abone">
+      <End Role="Abone" EntitySet="Abone" />
+      <End Role="Internet" EntitySet="Internet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Su_Abone" Association="Self.FK_Su_Abone">
+      <End Role="Abone" EntitySet="Abone" />
+      <End Role="Su" EntitySet="Su" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefon_Abone" Association="Self.FK_Telefon_Abone">
+      <End Role="Abone" EntitySet="Abone" />
+      <End Role="Telefon" EntitySet="Telefon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DGaz_Hizmet" Association="Self.FK_DGaz_Hizmet">
+      <End Role="Hizmet" EntitySet="Hizmet" />
+      <End Role="DGaz" EntitySet="DGaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DGaz_kullanici" Association="Self.FK_DGaz_kullanici">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="DGaz" EntitySet="DGaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Elektrik_Hizmet" Association="Self.FK_Elektrik_Hizmet">
+      <End Role="Hizmet" EntitySet="Hizmet" />
+      <End Role="Elektrik" EntitySet="Elektrik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Elektrik_kullanici1" Association="Self.FK_Elektrik_kullanici1">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="Elektrik" EntitySet="Elektrik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internet_Hizmet" Association="Self.FK_Internet_Hizmet">
+      <End Role="Hizmet" EntitySet="Hizmet" />
+      <End Role="Internet" EntitySet="Internet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Su_Hizmet" Association="Self.FK_Su_Hizmet">
+      <End Role="Hizmet" EntitySet="Hizmet" />
+      <End Role="Su" EntitySet="Su" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefon_Hizmet" Association="Self.FK_Telefon_Hizmet">
+      <End Role="Hizmet" EntitySet="Hizmet" />
+      <End Role="Telefon" EntitySet="Telefon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Internet_kullanici" Association="Self.FK_Internet_kullanici">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="Internet" EntitySet="Internet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Su_kullanici" Association="Self.FK_Su_kullanici">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="Su" EntitySet="Su" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefon_kullanici" Association="Self.FK_Telefon_kullanici">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="Telefon" EntitySet="Telefon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
